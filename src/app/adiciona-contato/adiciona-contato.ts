@@ -27,7 +27,7 @@ export class AdicionaContato {
       nome: ['', Validators.required],
       telefone: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      aniversario: ['', Validators.required],
+      nascimento: ['', Validators.required],
       tipo: ['', Validators.required]
     });
 
@@ -39,7 +39,7 @@ export class AdicionaContato {
       this.formContato.value.nome,
       this.formContato.value.telefone,
       this.formContato.value.email,
-      this.formContato.value.aniversario,
+      this.formContato.value.nascimento,
       this.formContato.value.tipo
     );
   

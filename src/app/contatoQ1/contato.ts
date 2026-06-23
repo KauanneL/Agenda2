@@ -10,20 +10,20 @@ export class Contato {
   private nome: string;
   private telefone: string;
   private email: string;
-  private aniversario: string;
+  private nascimento: string;
   private tipo: TipoContato;
 
   constructor(
     nome: string,
     telefone: string,
     email: string,
-    aniversario: string,
+    nascimento: string,
     tipo: TipoContato
   ) {
     this.nome = nome;
     this.telefone = telefone;
     this.email = email;
-    this.aniversario = aniversario;
+    this.nascimento = nascimento;
     this.tipo = tipo;
   }
 
@@ -51,12 +51,12 @@ export class Contato {
     this.email = email;
   }
 
-  public getAniversario(): string {
-    return this.aniversario;
+  public getNascimento(): string {
+    return this.nascimento;
   }
 
-  public setAniversario(aniversario: string): void {
-    this.aniversario = aniversario;
+  public setNascimento(nascimento: string): void {
+    this.nascimento = nascimento;
   }
 
   public getTipo(): TipoContato {
