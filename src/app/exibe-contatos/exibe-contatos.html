@@ -1,0 +1,58 @@
+@if (obterContatos().length > 0) {
+
+    <div class="card shadow mt-4">
+  
+      <div class="card-header bg-secondary text-white">
+        <h4 class="mb-0">Contatos Cadastrados</h4>
+      </div>
+  
+      <div class="card-body">
+  
+        <div class="table-responsive">
+  
+          <table class="table table-striped table-hover table-bordered">
+  
+            <thead class="table-dark">
+              <tr>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Email</th>
+                <th>Aniversário</th>
+                <th>Tipo</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+  
+            <tbody>
+
+                @for (contato of obterContatos(); track contato) {
+              
+                  <tr>
+                    <td>{{ contato.getNome() }} </td> 
+                    <td>{{ contato.getTelefone() }}</td>
+                    <td>{{ contato.getEmail() }}</td>
+                    <td>{{ contato.getAniversario() }}</td>
+                    <td>{{ contato.getTipo() }}</td>
+              
+                    <td>
+                      <button
+                        class="btn btn-danger btn-sm"
+                        (click)="removerContato(contato)">
+                        Remover
+                      </button>
+                    </td>
+                  </tr>
+              
+                }
+              
+              </tbody>
+  
+          </table>
+  
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  }

@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Contato, TipoContato } from '../contatoQ1/contato';
+//importa serviço
+import { AgendaService } from '../agenda-service';
 
 @Component({
   selector: 'app-adiciona-contato',
@@ -12,7 +14,8 @@ export class AdicionaContato {
 
   private formBuilder = inject(FormBuilder);
 
-  protected contatos: Contato[] = [];
+  //protected contatos: Contato[] = []; e injeta serviço
+  private agendaService = inject(AgendaService);
 
   protected tipos = Object.values(TipoContato);
 
@@ -39,10 +42,15 @@ export class AdicionaContato {
       this.formContato.value.aniversario,
       this.formContato.value.tipo
     );
-
-    this.contatos.push(contato);
-
-    this.formContato.reset();
+  
+    const adicionou = this.agendaService.adicionar(contato);
+  
+    if (adicionou) {
+      this.formContato.reset();
+    } else {
+      alert('Contato já cadastrado!');
+    }
+  
   }
 
 }
