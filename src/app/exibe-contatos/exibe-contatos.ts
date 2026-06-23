@@ -4,6 +4,7 @@ import { Contato } from '../contatoQ1/contato';
 
 @Component({
   selector: 'app-exibe-contatos',
+  standalone: true,
   templateUrl: './exibe-contatos.html',
   styleUrl: './exibe-contatos.scss'
 })
@@ -11,7 +12,7 @@ export class ExibeContatos {
 
   private agendaService = inject(AgendaService);
 
-  obterContatos() {
+  obterContatos(): Contato[] {
     return this.agendaService.obterTodos();
   }
 
